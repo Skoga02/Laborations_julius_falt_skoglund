@@ -1,0 +1,24 @@
+services:
+  postgres:
+    # uses lastet version of postgres 
+    image: postgres:latest
+    container_name: postgres
+    restart: always
+    environment:
+      # optional, we are going to use the .env soloution
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      # mapping the port that is specific in our .env 
+      - "${POSTGRES_PORT}:5432"
+    volumes:
+      # name volumes, docker volume. Managed in the docker are of the post-machine
+      - postgres_data:/var/lib/postgresql/data 
+    healthcheck: # healthchecks, shos that it works. 
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres}"]
+      interval: 5s
+      retries: 5
+      timeout: 3s
+volumes:
+  postgres_data:
