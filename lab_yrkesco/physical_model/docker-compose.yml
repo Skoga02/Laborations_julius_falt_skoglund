@@ -1,9 +1,10 @@
 services:
   postgres:
     # uses lastet version of postgres 
-    image: postgres:latest
-    container_name: postgres
+    image: postgres:15
+    container_name: postgres-yrkco
     restart: always
+    platform: linux/amd64
     environment:
       # optional, we are going to use the .env soloution
       POSTGRES_USER: ${POSTGRES_USER}
