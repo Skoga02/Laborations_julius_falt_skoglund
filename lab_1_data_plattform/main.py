@@ -29,15 +29,26 @@ lab_df["missing_id"] = lab_df["id"].isna()
 lab_df["missing_name"] = lab_df["name"].isna()
 lab_df["invalid_date"] = lab_df["created_at"].isna()
 
-# rejected_df = lab_df[
-#     (lab_df["invalid_price"]) |
-#     (lab_df["missing_id"]) |
-#     (lab_df["missing_name"])
-# ]
+# dosent really reject anything, just points them out. 
+rejected_df = lab_df[
+    (lab_df["invalid_price"]) |
+    (lab_df["missing_id"]) |
+    (lab_df["missing_name"])
+]
 
-
-# actully removes invalid prices
+# this actully removes invalid prices
 lab_df.loc[lab_df["price"] < 0, "price"] = None
 
 print("Cleaned data:")
 print(lab_df)
+
+valid_df = lab_df[~lab_df.index.isin(rejected_df.index)]
+
+summary_df = pd.DataFrame({
+    "snittpris": [valid_df["price"].mean()],
+    "medianpris": [valid_df["price"].median()],
+    "antal produkter": [len(valid_df)],
+    "antal produkter med saknat pris": [valid_df["price"].isna().sum()]
+})
+
+summary_df.to_csv("analytics_summary.csv", index=False)
