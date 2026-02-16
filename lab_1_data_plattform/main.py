@@ -44,6 +44,9 @@ print(lab_df)
 
 valid_df = lab_df[~lab_df.index.isin(rejected_df.index)]
 
+####################################
+######## analytics summary #########
+
 summary_df = pd.DataFrame({
     "snittpris": [valid_df["price"].mean()],
     "medianpris": [valid_df["price"].median()],
@@ -52,3 +55,31 @@ summary_df = pd.DataFrame({
 })
 
 summary_df.to_csv("analytics_summary.csv", index=False)
+
+####################################
+######### price analytics ########## 
+top_10_expensive = valid_df.sort_values("price", ascending=False).head(10)
+top_10_expensive["category"] = "Top 10 expensive"
+
+median_price = valid_df["price"].median()
+valid_df["price deviation"] = abs(valid_df["price"] - median_price)
+
+top_10_deviation = valid_df.sort_values("price deviation", ascending=False).head(10)
+top_10_deviation["category"] = "Top 10 price deviation"
+
+price_analytics = pd.concat(
+    [top_10_expensive, top_10_deviation],
+    ignore_index=True
+)
+
+columns_to_keep = [
+    "id",
+    "name",
+    "price",
+    "price deviation",
+    "category"
+]
+
+price_analytics = price_analytics[columns_to_keep]
+
+price_analytics.to_csv("price_analytics.csv", index=False)
