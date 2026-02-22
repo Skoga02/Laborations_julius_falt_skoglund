@@ -68,7 +68,7 @@ analytics_summary_df = pd.DataFrame({
     "snittpris": [valid_df["price"].mean()],
     "medianpris": [valid_df["price"].median()],
     "antal produkter": [len(valid_df)],
-    "antal produkter med saknat pris": [lab_df["price"].isna().sum()]   # lab_df since we have son NaN values otherwise
+    "antal produkter med saknat pris": [lab_df["price"].isna().sum()]   # lab_df since we have some NaN values otherwise always 0
 })
 
 analytics_summary_df.to_csv("analytics_summary.csv", index=False)
