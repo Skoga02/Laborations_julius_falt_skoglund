@@ -1,0 +1,21 @@
+id,name,price,price deviation,category
+SKU-1039,Coat,999999.0,999399.0,Top 10 expensive
+SKU-1021,Ring,25000.0,24400.0,Top 10 expensive
+SKU-1020,Watch,15000.0,14400.0,Top 10 expensive
+SKU-1032,Suit,5000.0,4400.0,Top 10 expensive
+SKU-1040,Parka,4500.0,3900.0,Top 10 expensive
+SKU-1027,Winter Jacket,3500.0,2900.0,Top 10 expensive
+SKU-1016,Coat,2500.0,1900.0,Top 10 expensive
+SKU-1034,Blazer,2200.0,1600.0,Top 10 expensive
+SKU-1047,Heels,1500.0,900.0,Top 10 expensive
+SKU-1010,Boots,1500.0,900.0,Top 10 expensive
+SKU-1039,Coat,999999.0,999399.0,Top 10 price deviation
+SKU-1021,Ring,25000.0,24400.0,Top 10 price deviation
+SKU-1020,Watch,15000.0,14400.0,Top 10 price deviation
+SKU-1032,Suit,5000.0,4400.0,Top 10 price deviation
+SKU-1040,Parka,4500.0,3900.0,Top 10 price deviation
+SKU-1027,Winter Jacket,3500.0,2900.0,Top 10 price deviation
+SKU-1016,Coat,2500.0,1900.0,Top 10 price deviation
+SKU-1034,Blazer,2200.0,1600.0,Top 10 price deviation
+SKU-1047,Heels,1500.0,900.0,Top 10 price deviation
+SKU-1010,Boots,1500.0,900.0,Top 10 price deviation
