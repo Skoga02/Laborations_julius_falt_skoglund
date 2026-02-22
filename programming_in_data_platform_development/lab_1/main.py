@@ -4,9 +4,6 @@ import pandas as pd
 # Reads in csv file and separetes columns by ";"
 lab_df = pd.read_csv("lab_1.csv", sep=';')
 
-print("Untouched data:")
-print(lab_df.head())
-
 ######## CLEAN & TRANSFORM ########
 
 # Removes whitespaces start/end, makes first letter capital
